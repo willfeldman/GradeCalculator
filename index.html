@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Grade Calculator - test out what your grades will be">
+    <meta name="author" content="Will Feldman">
+
+    <title>Grade Calculator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="pricing.css" rel="stylesheet">
+  </head>
+
+  <body>
+	  
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">High School Grade Calculator</h1>
+      <p class="lead">Use this website to test out what your semester grades can be <br><span id="changehide">(40% S3, 40% S4, 20% Exam) <span style="color: #486cfc" id="change"><i>change</i></span></span></p>
+    </div>
+    
+    <div class="text-center">
+	    <div id="weightbox">
+	    <h1 class="display-4">Weight</h1>
+		    <div class="container">
+		      <div class="card-deck mb-3 text-center">
+		        <div class="card mb-4 box-shadow">
+		          <div class="card-header">
+		            <h4 class="my-0 font-weight-normal">Quarters (x2)</h4>
+		          </div>
+		          <div class="card-body">
+			        <h1 class="card-title pricing-card-title"><input type="text" class="form-control" id="quarterweight" value="0.4" aria-describedby="emailHelp" placeholder="Enter weight" style="text-align: center;"><small class="text-muted"></small></h1>
+		          </div>
+		        </div>
+		        <div class="card mb-4 box-shadow">
+		          <div class="card-header">
+		            <h4 class="my-0 font-weight-normal">Exam</h4>
+		          </div>
+		          <div class="card-body">
+		            <h1 class="card-title pricing-card-title"><input type="text" class="form-control" id="examweight" value="0.2" aria-describedby="emailHelp" placeholder="Enter weight" style="text-align: center;"><small class="text-muted"></small></h1>
+		          </div>
+		        </div>
+		      </div>
+	    <h1 class="display-4">Grades</h1>
+		</div>
+    </div>
+
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">First Quarter</h4>
+          </div>
+          <div class="card-body">
+	        <h1 class="card-title pricing-card-title"><input type="text" class="form-control" id="quarter3" aria-describedby="emailHelp" placeholder="Enter grade" style="text-align: center;"><small class="text-muted">%</small></h1>
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Second Quarter</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><input type="text" class="form-control" id="quarter4" aria-describedby="emailHelp" placeholder="Enter grade" style="text-align: center;"><small class="text-muted">%</small></h1>
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Exam Two</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><input type="text" class="form-control" id="exam2" aria-describedby="emailHelp" placeholder="Enter grade" style="text-align: center;"><small class="text-muted">%</small></h1>
+          </div>
+        </div>
+      </div>
+      
+  	<div class="card mb-4 box-shadow-final">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal" style="text-align: center;">Semester Grade</h4>
+      </div>
+      <div class="card-body">
+        <h1 style="text-align: center;"><span id="final">100</span>%</h1>
+        <button type="button" class="btn btn-lg btn-block btn-primary" id="calculate">Calculate</button>
+      </div>
+    </div>
+    
+    <div class="card mb-4 box-shadow-final">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal" style="text-align: center;">What Do I Need on E2 for An A?</h4>
+      </div>
+      <div class="card-body">
+        <h1 style="text-align: center;"><span id="finalneed">100</span>%</h1>
+        <button type="button" class="btn btn-lg btn-block btn-success" id="calculateneed">Calculate</button>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">What Grade Do You Want In The Class?</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><input type="text" class="form-control" id="examwant" aria-describedby="emailHelp" placeholder="Enter grade" style="text-align: center;"><small class="text-muted">%</small></h1>
+          </div>
+
+	        <h5 class="my-0 font-weight-normal" style="text-align: center;">What Do I Need for That Grade?</h5>
+
+	      <div class="card-body">
+	        <h1 style="text-align: center;"><span id="finalneedforblank">100</span>%</h1>
+	        <button type="button" class="btn btn-lg btn-block btn-secondary" id="calculateneedwish">Calculate</button>
+	      </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="jquery-slim.min.js"><\/script>')</script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="holder.min.js"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+      
+	$( document ).ready(function() {  
+		
+	$('#weightbox').hide();  
+		  
+	$( "#calculate" ).click(function() {
+	  var Q3 = $("#quarter3").val();
+      var Q4 = $("#quarter4").val();
+      var E2 = $("#exam2").val();
+      var GradeWish = $("#examwant").val();
+      var QWeight = $("#quarterweight").val();
+      var EWeight = $("#examweight").val();
+      var finalgrade = ((Q3*QWeight) + (Q4*QWeight) + (E2*EWeight));
+
+	  $("#final").html("" + finalgrade.toFixed(1)  + "");
+	});
+	
+	$( "#calculateneed" ).click(function() {
+	  var Q3 = $("#quarter3").val();
+      var Q4 = $("#quarter4").val();
+      var E2 = $("#exam2").val();
+      var GradeWish = $("#examwant").val();
+      var QWeight = $("#quarterweight").val();
+      var EWeight = $("#examweight").val();
+      var needgrade = ((93.0-(Q3*QWeight)-(Q4*QWeight))/EWeight);
+      
+
+	  $("#finalneed").html("" + needgrade.toFixed(1)  + "");
+	});
+	
+	$( "#calculateneedwish" ).click(function() {
+	  var Q3 = $("#quarter3").val();
+      var Q4 = $("#quarter4").val();
+      var E2 = $("#exam2").val();
+      var GradeWish = $("#examwant").val();
+      var QWeight = $("#quarterweight").val();
+      var EWeight = $("#examweight").val();
+      var needgrade = ((93.0-(Q3*QWeight)-(Q4*QWeight))/EWeight);
+      var finalneededWithBlank = ((GradeWish-(Q3*QWeight)-(Q4*QWeight))/EWeight);
+      
+	  $("#finalneedforblank").html("" + finalneededWithBlank.toFixed(1)  + "");
+	});
+	
+	$( "#change" ).click(function() {
+		$('#changehide').hide();
+		$('#weightbox').show();  
+		
+	});
+	
+	});
+    </script>
+  </body>
+</html>
